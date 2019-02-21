@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import Typography from '@material-ui/core/Typography';
 
-class SignIn extends PureComponent {
+class Portfolio extends PureComponent {
     render() {
         return (
             <React.Fragment>
                 <Typography variant='h3' color='secondary'>
-                    SignIn Content
+                    Portfolio Content
                 </Typography>
             </React.Fragment>
         );
     }
 }
 
-export default SignIn;
+export default Portfolio;

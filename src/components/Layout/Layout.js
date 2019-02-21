@@ -4,15 +4,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
-import LiveHelpIcon from '@material-ui/icons/LiveHelp';
-import SettingsIcon from '@material-ui/icons/Settings';
+import PortfolioIcon from '@material-ui/icons/ImportantDevices';
+import ContactIcon from '@material-ui/icons/Forum';
+import ResumeIcon from '@material-ui/icons/Assignment';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -65,39 +63,32 @@ class ResponsiveDrawer extends React.Component {
 
     getIcon = (name) => {
         switch (name.toLowerCase()) {
-            case 'home':
-                return <HomeIcon />;
+            case 'portfolio':
+                return <PortfolioIcon />;
                 
-            case 'ask a question':
-                return <QuestionAnswerIcon />;
-
-            case 'faqs':
-                return <LiveHelpIcon />;
-
-            case 'settings':
-                return <SettingsIcon />;
+            case 'contact':
+                return <ContactIcon />;
+        
+            case 'resumé':
+                return <ResumeIcon />;
         
             default:
-                return <InboxIcon />;
+                return <ContactIcon />;
         }
     };
 
     navigate = (text) => {
         switch (text.toLowerCase()) {
-            case 'home':
+            case 'portfolio':
                 this.props.history.push('/');
             break;
 
-            case 'ask a question':
-                this.props.history.push('/ask');
+            case 'contact':
+                this.props.history.push('/contact');
             break;
 
-            case 'faqs':
-                this.props.history.push('/faqs');
-            break;
-
-            case 'settings':
-                this.props.history.push('/settings');
+            case 'resumé':
+                //
             break;
         
             default:
@@ -113,25 +104,16 @@ class ResponsiveDrawer extends React.Component {
             <div className='layout'>
                 <div className={ `${classes.toolbar} toolbar` }>
                     <Typography variant='h6' color='inherit' noWrap>
-                        Qs n Paids
+                        Akyuna Akish
                     </Typography>
                 </div>
 
                 <Divider />
                 <List>
-                    { [ 'Home', 'Ask a Question' ].map((text, index) => (
+                    { [ 'Portfolio', 'Contact', 'Resumé' ].map((text, index) => (
                         <ListItem button key={ text } onClick={ () => this.navigate(text) }>
                             <ListItemIcon classes={{ root: 'grey-icon' }}>{ this.getIcon(text) }</ListItemIcon>
                             <ListItemText primary={ text } classes={{ root: 'white-text' }}/>
-                        </ListItem>
-                    )) }
-                </List>
-                <Divider />
-                <List>
-                    { [ 'FAQs', 'Settings' ].map((text, index) => (
-                        <ListItem button key={ text } onClick={ () => this.navigate(text) }>
-                            <ListItemIcon classes={{ root: 'grey-icon' }}>{ this.getIcon(text) }</ListItemIcon>
-                            <ListItemText primary={ text } classes={{ root: 'white-text' }} />
                         </ListItem>
                     )) }
                 </List>
